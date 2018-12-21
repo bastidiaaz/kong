@@ -1,9 +1,9 @@
 <!doctype html>
-<html ng-app="angularSeedApp">
+<html style="height: 100%" ng-app="angularSeedApp">
 
 <head>
     <meta charset="utf-8">
-    <title>Angular Seed APP</title>
+    <title>Kong</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
@@ -22,11 +22,27 @@
     <!-- endbuild -->
 </head>
 
-<body>
+<body style="height: 100%">
+  <div class="flex-column container-fluid" style="height: 100%">
+    <div class="flex-row row">
+      <div class="flex-item">
+        <acme-navbar />
+      </div>
+    </div>
+    <div class="flex-row flex-item row">
+      <div class="flex-column flex-item col-xs-12 container">
+        <div class="flex-row flex-item row">
+          <div class="no-padding col-xs-3 flex-column">
+            <left-panel class="flex-column flex-item"/>
+          </div>
+          <div class="flex-column col-xs-9" ui-view></div>
+        </div>
+      </div>
+    </div>
+  </div>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div ui-view></div>
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->

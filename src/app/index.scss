@@ -26,6 +26,32 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
     width: 50px;
   }
 }
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+.fill {
+  height: -webkit-fill-available;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
