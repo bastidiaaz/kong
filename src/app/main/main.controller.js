@@ -232,7 +232,7 @@
         ], {
           radius: 70,
           maxZoom: 13,
-          max: 1,
+          max: 500,
           blur: 15
         }).addTo(map);
       }
