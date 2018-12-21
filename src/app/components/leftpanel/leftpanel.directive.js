@@ -30,6 +30,7 @@
             vm.maxICAP = 500;
             vm.mp25 = [vm.maxICAP, 0];
             vm.mp10 = [vm.maxICAP, 0];
+            vm.kong = [vm.maxICAP, 0];
 
             activate();
 
@@ -40,6 +41,8 @@
                 vm.mp25[0] = vm.maxICAP - vm.selectedData.mp25ICAP;
                 vm.mp10[1] = vm.selectedData.mp10ICAP;
                 vm.mp10[0] = vm.maxICAP - vm.selectedData.mp10ICAP;
+                vm.kong[1] = vm.selectedData.kong;
+                vm.kong[0] = vm.maxICAP - vm.selectedData.kong;
                 $scope.$apply();
               });
             }
