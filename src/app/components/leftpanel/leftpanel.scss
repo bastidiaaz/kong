@@ -18,6 +18,10 @@
 	margin-bottom: 15px;
 }
 
+#titulo {
+	text-align: center;
+}
+
 #kong {
 	color: white; 
 	width: 120px; 
@@ -25,4 +29,17 @@
 	padding-top: 10px;
 	padding-bottom: 4px;
 	padding-left:30px;
+}
+
+#separador {
+	border-top: solid; 
+	border-color: #FF5722; 
+	border-top-left-radius: 60px; 
+	border-top-right-radius: 60px;
+}
+
+#separadorpadre {
+	margin-left: 12px; 
+	margin-bottom: 5px; 
+	margin-top: 5px;
 }
