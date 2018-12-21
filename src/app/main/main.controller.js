@@ -10,7 +10,7 @@
       var vm = this;
       var map = new L.Map('mapa1');
       vm.checkboxList = {
-        mp25: true,
+        mp25: false,
         mp10: false
       };
 
@@ -103,7 +103,7 @@
             maxZoom: 13,
             max: 500,
             blur: 15
-          }).addTo(map);
+          });
 
           //Crear array con datos para heatmap
           vm.heatStatsMp10 = [];
@@ -118,6 +118,10 @@
             max: 500,
             blur: 15
           });
+
+          console.log(vm.datos);
+          console.log(vm.heatStatsMp25);
+          console.log(vm.heatStatsMp10);
         });
       }
 
