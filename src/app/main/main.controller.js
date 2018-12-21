@@ -9,6 +9,7 @@
     function MainController() {
       var vm = this;
       var map = new L.Map('mapa1');
+
       activate();
 
       function activate() {
@@ -24,6 +25,20 @@
         map.on('click', function(e) {
           console.log(e.target);
         });
+
+        vm.valores = _.times(38, _.random.bind(0, 170));
+        vm.datos = [];
+        var i = 1;
+        angular.forEach(vm.valores, function(valor) {
+          var obj = {
+            "nombre": "Sensor " + i,
+            "valor": valor
+          };
+          vm.datos.push(obj);
+          i++;
+        });
+
+        console.log(vm.datos);
 
         setGeoJSONLayer();
         setHeatmapLayer();
