@@ -2,6 +2,6 @@
     'use strict';
 
     angular
-        .module('angularSeedApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap']);
+        .module('angularSeedApp', ['chart.js', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap']);
 
 })();
