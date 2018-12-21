@@ -16,12 +16,14 @@
   <div class="row">
     <div class="col-xs-6">
       <h5 id="graphtitle">ICAP MP 2,5</h5>
-      <canvas id="mp25" class="chart chart-doughnut" chart-colors="vm.colours" chart-data="vm.mp25"></canvas>
+      <canvas id="mp25" class="chart chart-doughnut" chart-colors="vm.colours" chart-data="vm.mp25" 
+      chart-labels=vm.labelmp25></canvas>
       <p class="text-center"><b>{{vm.mp25[1] | number: 0}}/{{vm.maxICAP}}</b></p>
     </div>
     <div class="col-xs-6">
       <h5 id="graphtitle">ICAP MP 10</h5>
-      <canvas id="mp10" class="chart chart-doughnut" chart-colors="vm.colours" chart-data="vm.mp10"></canvas>
+      <canvas id="mp10" class="chart chart-doughnut" chart-colors="vm.colours" chart-data="vm.mp10" 
+      chart-labels="vm.labelmp10"></canvas>
       <p class="text-center"><b>{{vm.mp10[1] | number: 0}}/{{vm.maxICAP}}</b></p>
     </div>
   </div>

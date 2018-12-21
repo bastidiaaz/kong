@@ -23,6 +23,8 @@
         /** @ngInject */
         function LeftPanelController($scope, $rootScope) {
             var vm = this;
+            vm.labelmp25 = ["","ICAP MP 2,5"];
+            vm.labelmp10 = ["","ICAP MP 10"];
             vm.colours = ['#FFCCBC', '#FF5722', '#717984', '#F1C40F'];
             vm.selectedData;
             vm.maxICAP = 500;
