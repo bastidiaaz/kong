@@ -1,9 +1,21 @@
 .leftpanel {
-  background: #00796B;
+  background: #318b05;
+  opacity: 0.8;
   -webkit-box-shadow: 11px 0px 12px -4px rgba(135,133,135,0.87);
   -moz-box-shadow: 11px 0px 12px -4px rgba(135,133,135,0.87);
   box-shadow: 11px 0px 12px -4px rgba(135,133,135,0.87);
   padding-top: 30px;
+}
+
+.logo-kong {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  display: flex;
+  img {
+    height: 25px;
+    margin-right: 5px;
+  }
 }
 
 #graphtitle, #kongtitle {
