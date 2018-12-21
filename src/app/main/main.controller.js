@@ -16,9 +16,8 @@
         // create the tile layer with correct attribution
         var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
         var osmAttrib='Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors';
-        var osm = new L.TileLayer(osmUrl, {minZoom: 10, maxZoom: 15, attribution: osmAttrib});
+        var osm = new L.TileLayer(osmUrl, {minZoom: 13, maxZoom: 13, attribution: osmAttrib});
 
-        // start the map in South-East England
         map.setView(new L.LatLng(-38.73587485347638, -72.58898735046388),13);
         map.addLayer(osm);
 
@@ -47,7 +46,23 @@
 
           //Crear array con datos para heatmap
           vm.heatStats = [];
-          angular.forEach(vm.datos, function(dato) {
+          angular.forEach(_.orderBy(vm.datos, 'valorICAP'), function(dato) {
+            L.circle([dato.latlng[0], dato.latlng[1]], {valor: dato.valor, valorICAP: dato.valorICAP, radius: 1000, opacity: 0, fillOpacity: 0}).addTo(map).on('click', function(e){
+              console.log(dato);
+              console.log(e.target);
+              var lat = e.latlng.lat;
+              var lon = e.latlng.lng;
+
+              //Clear existing marker,
+              if (vm.theMarker != undefined) {
+                map.removeLayer(vm.theMarker);
+              };
+
+              //Add a marker to show where you clicked.
+              vm.theMarker = L.marker([lat,lon]).addTo(map);
+              vm.theMarker.bindPopup("ICAP: " + e.target.options.valorICAP).openPopup();
+            });
+
             var obj = [dato.latlng[0], dato.latlng[1], dato.valorICAP];
             vm.heatStats.push(obj);
           });
