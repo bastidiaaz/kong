@@ -26,22 +26,40 @@
           console.log(e.target);
         });
 
+        generateRandomData();
+        setGeoJSONLayer();
+        setHeatmapLayer();
+
+        console.log(vm.datos);
+      }
+
+      function generateRandomData() {
+        //Generar valores random de mp2,5
         vm.valores = _.times(38, _.random.bind(0, 170));
         vm.datos = [];
         var i = 1;
         angular.forEach(vm.valores, function(valor) {
           var obj = {
             "nombre": "Sensor " + i,
+            "tipo": "MP2.5",
             "valor": valor
           };
           vm.datos.push(obj);
           i++;
         });
 
-        console.log(vm.datos);
-
-        setGeoJSONLayer();
-        setHeatmapLayer();
+        //Transformar a valor ICAP
+        angular.forEach(vm.datos, function(dato) {
+          if (dato.valor == 0) {
+            dato.valorICAP = 0;
+          }
+          if (dato.valor > 0 && dato.valor <= 50) {
+            dato.valorICAP = dato.valor * 100 / 50;
+          }
+          if (dato.valor > 50) {
+            dato.valorICAP = dato.valor * 500 / 170
+          }
+        });
       }
 
       function setHeatmapLayer() {
