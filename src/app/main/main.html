@@ -2,7 +2,26 @@
     <div class="row">
         <div class="col-xs-8">
           <div class="map-container">
-            <div id="mapa1"></div>
+            <div id="mapa1">
+              <div class="container map-layers-list">
+                <div class="row">
+                  <div class="col-xs-12 text-left no-padding">
+                    <span class="input-group-addon">
+                      <input ng-model="vm.checkboxList.mp25" ng-change="vm.checkboxChange('mp25')" id="checkbox-mp25" type="checkbox" aria-label="...">
+                      <label for="checkbox-mp25">Mostrar ICAP 2.5</label>
+                    </span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 text-left no-padding">
+                    <span class="input-group-addon">
+                      <input ng-model="vm.checkboxList.mp10" ng-change="vm.checkboxChange('mp10')" id="checkbox-mp10" type="checkbox" aria-label="...">
+                      <label for="checkbox-mp10">Mostrar ICAP 10</label>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
     </div>

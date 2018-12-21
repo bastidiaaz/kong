@@ -9,6 +9,10 @@
     function MainController($http, $scope, $rootScope) {
       var vm = this;
       var map = new L.Map('mapa1');
+      vm.checkboxList = {
+        mp25: true,
+        mp10: false
+      };
 
       activate();
 
@@ -23,6 +27,24 @@
 
         generateRandomData();
         // setGeoJSONLayer();
+      }
+
+      vm.checkboxChange = function(tipo) {
+        if (tipo == 'mp25') {
+          if (!vm.checkboxList[tipo]) {
+            map.removeLayer(vm.heatMp25);
+          } else {
+            map.addLayer(vm.heatMp25);
+          }
+        }
+
+        if (tipo == 'mp10') {
+          if (!vm.checkboxList[tipo]) {
+            map.removeLayer(vm.heatMp10);
+          } else {
+            map.addLayer(vm.heatMp10);
+          }
+        }
       }
 
       function generateRandomData() {
@@ -55,7 +77,7 @@
           });
 
           //Crear array con datos para heatmap
-          vm.heatStats = [];
+          vm.heatStatsMp25 = [];
           angular.forEach(_.orderBy(vm.datos, 'mp25ICAP'), function(dato) {
             L.circle([dato.latlng[0], dato.latlng[1]], {dato: dato, radius: 1000, opacity: 0, fillOpacity: 0}).addTo(map).on('click', function(e){
               var lat = e.latlng.lat;
@@ -68,21 +90,34 @@
 
               //Add a marker to show where you clicked.
               vm.theMarker = L.marker([lat,lon]).addTo(map);
-              vm.theMarker.bindPopup("ICAP 2.5: " + e.target.options.dato.mp25ICAP).openPopup();
 
               $rootScope.$emit('mapClicked', dato);
             });
 
             var obj = [dato.latlng[0], dato.latlng[1], dato.mp25ICAP];
-            vm.heatStats.push(obj);
+            vm.heatStatsMp25.push(obj);
           });
 
-          var heat = L.heatLayer(vm.heatStats, {
+          vm.heatMp25 = L.heatLayer(vm.heatStatsMp25, {
             radius: 70,
             maxZoom: 13,
             max: 500,
             blur: 15
           }).addTo(map);
+
+          //Crear array con datos para heatmap
+          vm.heatStatsMp10 = [];
+          angular.forEach(_.orderBy(vm.datos, 'mp10ICAP'), function(dato) {
+            var obj = [dato.latlng[0], dato.latlng[1], dato.mp10ICAP];
+            vm.heatStatsMp10.push(obj);
+          });
+
+          vm.heatMp10 = L.heatLayer(vm.heatStatsMp10, {
+            radius: 70,
+            maxZoom: 13,
+            max: 500,
+            blur: 15
+          });
         });
       }
 
