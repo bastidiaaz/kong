@@ -6,7 +6,7 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController($http) {
+    function MainController($http, $scope, $rootScope) {
       var vm = this;
       var map = new L.Map('mapa1');
 
@@ -27,29 +27,37 @@
 
       function generateRandomData() {
         $http.get('app/main/datos.json').success(function(response){
-          //Generar valores para cada JSON obj
+          //Generar para cada JSON obj
           vm.datos = response.datos;
           angular.forEach(vm.datos, function(dato) {
             dato.nombre = "Sensor " + dato.id;
-            dato.valor = _.random(0, 170);
+            dato.mp25 = _.random(0, 170);
+            if (dato.mp25 == 0) {
+              dato.mp25ICAP = 0;
+            }
+            if (dato.mp25 > 0 && dato.mp25 <= 50) {
+              dato.mp25ICAP = dato.mp25 * 100 / 50;
+            }
+            if (dato.mp25 > 50) {
+              dato.mp25ICAP = dato.mp25 * 500 / 170
+            }
 
-            if (dato.valor == 0) {
-              dato.valorICAP = 0;
+            dato.mp10 = _.random(0, 330);
+            if (dato.mp10 == 0) {
+              dato.mp10ICAP = 0;
             }
-            if (dato.valor > 0 && dato.valor <= 50) {
-              dato.valorICAP = dato.valor * 100 / 50;
+            if (dato.mp10 > 0 && dato.mp10 <= 150) {
+              dato.mp10ICAP = dato.mp10 * 100 / 150;
             }
-            if (dato.valor > 50) {
-              dato.valorICAP = dato.valor * 500 / 170
+            if (dato.mp10 > 150) {
+              dato.mp10ICAP = dato.mp10 * 500 / 330
             }
           });
 
           //Crear array con datos para heatmap
           vm.heatStats = [];
-          angular.forEach(_.orderBy(vm.datos, 'valorICAP'), function(dato) {
-            L.circle([dato.latlng[0], dato.latlng[1]], {valor: dato.valor, valorICAP: dato.valorICAP, radius: 1000, opacity: 0, fillOpacity: 0}).addTo(map).on('click', function(e){
-              console.log(dato);
-              console.log(e.target);
+          angular.forEach(_.orderBy(vm.datos, 'mp25ICAP'), function(dato) {
+            L.circle([dato.latlng[0], dato.latlng[1]], {dato: dato, radius: 1000, opacity: 0, fillOpacity: 0}).addTo(map).on('click', function(e){
               var lat = e.latlng.lat;
               var lon = e.latlng.lng;
 
@@ -60,10 +68,12 @@
 
               //Add a marker to show where you clicked.
               vm.theMarker = L.marker([lat,lon]).addTo(map);
-              vm.theMarker.bindPopup("ICAP: " + e.target.options.valorICAP).openPopup();
+              vm.theMarker.bindPopup("ICAP 2.5: " + e.target.options.dato.mp25ICAP).openPopup();
+
+              $rootScope.$emit('mapClicked', dato);
             });
 
-            var obj = [dato.latlng[0], dato.latlng[1], dato.valorICAP];
+            var obj = [dato.latlng[0], dato.latlng[1], dato.mp25ICAP];
             vm.heatStats.push(obj);
           });
 
@@ -75,7 +85,6 @@
           }).addTo(map);
         });
       }
-
 
       // function setGeoJSONLayer() {
       //   var states = [

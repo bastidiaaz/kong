@@ -11,15 +11,17 @@
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <h5 style="color: white; text-align: center;">Grafico 1</h5>
-      <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.data" chart-labels="vm.labels"></canvas>
+      <h5 style="color: white; text-align: center;">ICAP MP 2,5</h5>
+      <canvas id="mp25" class="chart chart-doughnut" chart-colors="vm.colours" chart-data="vm.mp25"></canvas>
+      <p class="text-center">{{vm.mp25[1] | number: 0}}/{{vm.maxICAP}}</p>
     </div>
     <div class="col-xs-6">
-      <h5 style="color: white; text-align: center;">Grafico 2</h5>
-      <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.data1" chart-labels="vm.labels1"></canvas>
+      <h5 style="color: white; text-align: center;">ICAP MP 10</h5>
+      <canvas id="mp10" class="chart chart-doughnut" chart-colors="vm.colours" chart-data="vm.mp10"></canvas>
+      <p class="text-center">{{vm.mp10[1] | number: 0}}/{{vm.maxICAP}}</p>
     </div>
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-xs-6">
       <h5 style="color: white; text-align: center;">Grafico 3</h5>
       <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.data2" chart-labels="vm.labels2"></canvas>
@@ -38,5 +40,5 @@
       <h5 style="color: white; text-align: center;">Grafico 6</h5>
       <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.data5" chart-labels="vm.labels5"></canvas>
     </div>
-  </div>
+  </div> -->
 </div>
