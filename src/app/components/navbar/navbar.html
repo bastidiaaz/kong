@@ -1,4 +1,4 @@
-<div layout="row" layout-align="start center" class="navbar">
+<div ng-if="$rootScope.view == 'main'" layout="row" layout-align="start center" class="navbar">
     <md-button class="md-icon-button md-primary" aria-label="Settings">
         <i class="glyphicon glyphicon-menu-hamburger"></i>
     </md-button>
@@ -10,6 +10,26 @@
         <div style="margin-left: 35px;" class="info-label" layout="row" flex layout-align="start center">
             <img class="icon-img" src="app/moneda@4x.png" />
             <span>4.142</span>
+        </div>
+    </div>
+</div>
+
+<div ng-if="$rootScope.view != 'main'" layout="column" layout-align="start start" class="navbar">
+    <md-button class="md-icon-button md-primary" aria-label="Settings">
+        <i class="glyphicon glyphicon-menu-hamburger"></i>
+    </md-button>
+
+    <div style="width: 100%; margin-top: 25px; margin-left: 35px;" flex layout="column">
+        <span class="navbar-user">David Sepulveda</span>
+        <div flex layout="row">
+            <div class="info-label" layout="row" flex layout-align="start center">
+                <img class="icon-img" src="app/exp@4x.png" />
+                <span>Nivel 1</span>
+            </div>
+            <div style="margin-left: 35px;" class="info-label" layout="row" flex layout-align="start center">
+                <img class="icon-img" src="app/moneda@4x.png" />
+                <span>4.142</span>
+            </div>
         </div>
     </div>
 </div>

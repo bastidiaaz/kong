@@ -21,8 +21,10 @@
         return directive;
 
         /** @ngInject */
-        function NavbarController() {
-            console.log('asdasdas');
+        function NavbarController($rootScope) {
+            console.log($rootScope);
+            var vm = this;
+
         }
     }
 
