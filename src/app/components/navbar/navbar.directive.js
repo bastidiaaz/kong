@@ -3,10 +3,10 @@
 
     angular
         .module('angularSeedApp')
-        .directive('acmeNavbar', acmeNavbar);
+        .directive('navBar', navBar);
 
     /** @ngInject */
-    function acmeNavbar() {
+    function navBar() {
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/navbar/navbar.html',
@@ -21,7 +21,9 @@
         return directive;
 
         /** @ngInject */
-        function NavbarController() {}
+        function NavbarController() {
+            console.log('asdasdas');
+        }
     }
 
 })();
