@@ -23,6 +23,29 @@
 <body>
   <div class="app" flex layout="column">
       <nav-bar></nav-bar>
+      <md-sidenav flex class="md-sidenav-left" md-component-id="closeEventsDisabled"
+      md-whiteframe="4" md-disable-close-events>
+      <md-content flex layout-margin>
+          <div flex layout="column" layout-align="center start" class="menu-list">
+              <div flex layout="row" layout-align="start center" class="menu-item">
+                  <i class="glyphicon glyphicon-user"></i>
+                  <span>Perfil</span>
+              </div>
+              <div flex layout="row" layout-align="start center" class="menu-item">
+                  <i class="glyphicon glyphicon-tree-deciduous"></i>
+                  <span>Misiones</span>
+              </div>
+              <div flex layout="row" layout-align="start center" class="menu-item">
+                  <i class="glyphicon glyphicon-cog"></i>
+                  <span>Configuración</span>
+              </div>
+          </div>
+      </md-content>
+      <div class="brand-text">
+          <span>Domo 2019</span>
+      </div>
+      </md-sidenav>
+
       <div flex layout="column" ui-view></div>
   </div>
     <!--[if lt IE 10]>

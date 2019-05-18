@@ -21,8 +21,15 @@
         return directive;
 
         /** @ngInject */
-        function NavbarController() {
-            console.log('asdasdas');
+        function NavbarController($scope, $mdSidenav) {
+            var vm = this;
+            vm.toggleSidenav = buildToggler('closeEventsDisabled');
+
+            function buildToggler(componentId) {
+                return function() {
+                    $mdSidenav(componentId).toggle();
+                };
+            }
         }
     }
 
