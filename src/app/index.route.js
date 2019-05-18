@@ -19,6 +19,12 @@
                 templateUrl: 'app/missions/missions.html',
                 controller: 'MissionsController',
                 controllerAs: 'vm'
+            })
+            .state('missions.detail', {
+                url: '/{missionId}',
+                templateUrl: 'app/missionDetail/missionDetail.html',
+                controller: 'MissionDetailController',
+                controllerAs: 'vm'
             });
 
         $urlRouterProvider.otherwise('/');
