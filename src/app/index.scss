@@ -23,6 +23,14 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
     background-size: cover;
 }
 
+.in-missions {
+    background-color: white;
+    background-image: url("banner-top.png");
+    background-size: 35%;
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;

@@ -1,6 +1,9 @@
 .navbar {
-    background: #90D1BB;
     padding: 10px;
+
+    .in-game-navbar {
+        color: #7F7F7F !important;
+    }
 
     .glyphicon {
         font-size: 25px;
@@ -22,6 +25,6 @@
 
     .navbar-user {
         color: white;
-        font-size: 30px; 
+        font-size: 30px;
     }
 }
