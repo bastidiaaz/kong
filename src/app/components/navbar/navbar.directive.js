@@ -44,11 +44,19 @@
             vm.view = $rootScope.view;
 
             $scope.global = $rootScope;
-
+            vm.isVisible = true;
             $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams){
-                vm.isVisible = $rootScope.view ==  'home' || $rootScope.view == 'game' ? false : true;
+                vm.isVisible = $rootScope.view == 'game' ? false : true;
+                console.log();
+                vm.isGame = $rootScope.view == 'game' ? true : false;
                 console.log(vm.isVisible);
+
+                if ($rootScope.view == 'game') {
+                    vm.title = toParams.type;
+                }
+
+                console.log($rootScope.currentMission);
             });
 
             vm.toggleSidenav = buildToggler('closeEventsDisabled');

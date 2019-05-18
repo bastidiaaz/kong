@@ -14,7 +14,7 @@
     </div>
 </div> -->
 
-<div layout="column" layout-align="start start" class="navbar">
+<div ng-if="!vm.isGame" layout="column" layout-align="start start" class="navbar">
     <md-button ng-click="vm.toggleSidenav()" class="md-icon-button md-primary" aria-label="Settings">
         <i ng-class="{'in-game-navbar': vm.view != 'home'}" class="glyphicon glyphicon-menu-hamburger"></i>
     </md-button>
@@ -31,5 +31,14 @@
                 <span ng-class="{'in-game-navbar': vm.view != 'home'}">{{global.rupias}}</span>
             </div>
         </div>
+    </div>
+</div>
+
+<div ng-if="vm.isGame" layout="row" layout-align="start center" class="navbar">
+    <md-button ng-click="vm.toggleSidenav()" class="md-icon-button md-primary" aria-label="Settings">
+        <i ng-class="{'in-game-navbar': vm.view != 'home'}" class="glyphicon glyphicon-menu-hamburger"></i>
+    </md-button>
+    <div style="font-size: 40px; color: #73a499; padding-right: 30px;" flex layout="row" layout-align="center center">
+        <span>{{vm.title}}</span>
     </div>
 </div>

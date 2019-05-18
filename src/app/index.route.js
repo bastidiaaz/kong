@@ -21,7 +21,7 @@
                 controllerAs: 'vm'
             })
             .state('game', {
-                url: '/game/{missionId}',
+                url: '/{type}/{missionId}',
                 templateUrl: 'app/missionDetail/missionDetail.html',
                 controller: 'MissionDetailController',
                 controllerAs: 'vm'

@@ -32,7 +32,7 @@
               ]
           };
 
-          $state.go('game', {missionId: newMission.id});
+          $state.go('game', {missionId: newMission.id, type: newMission.type});
           $rootScope.missions.push(newMission);
           setTimeout(function () {
               vm.missions = $rootScope.missions;

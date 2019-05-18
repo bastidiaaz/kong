@@ -11,6 +11,9 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
  */
 // bower:scss
 // endbower
+html, body {
+    font-family: 'Comfortaa';
+}
 
 .boton-rapido .md-button {
     background-color: #6DA89A !important;
