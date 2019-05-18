@@ -5,7 +5,8 @@
         <p style="color: #6DA89A; margin-left: 20px;">{{task.desc}}</p>
     </div>
     <div layout="column">
-        <md-button style="background-color: #6DA89A !important; color: white;" class="md-raised">Subir foto (antes)</md-button>
-        <md-button style="background-color: #6DA89A !important; color: white;" class="md-raised">Subir foto (después)</md-button>
+        <input style="margin-bottom: 10px; margin-top: 20px;" type="file" fileread="uploadme" />
+        <input style="margin-bottom: 10px; margin-top: 10px;" type="file" fileread="uploadme" />
+        <md-button ng-click="submit()"style="background-color: #6DA89A !important; color: white;" class="md-raised">Subir</md-button>
     </div>
 </div>

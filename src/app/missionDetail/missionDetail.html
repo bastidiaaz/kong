@@ -1,11 +1,20 @@
 <div flex layout="column" layout-align="space-around center" class="mission-detail">
-    <div flex class="task-item">
+    <div ng-if="!vm.currentMission.tasks[2].done" flex class="task-item">
         <img ng-click="vm.showAlert($event, vm.currentMission.tasks[2])" style="position: absolute; top: 150px; right: 60px;" class="icon-img" src="app/nolisto.png" />
     </div>
-    <div flex class="task-item">
+    <div ng-if="vm.currentMission.tasks[2].done" flex class="task-item">
+        <img style="position: absolute; top: 150px; right: 60px;" class="icon-img" src="app/listo.png" />
+    </div>
+    <div ng-if="!vm.currentMission.tasks[1].done" flex class="task-item">
         <img ng-click="vm.showAlert($event, vm.currentMission.tasks[1])"style="position: absolute; top: 330px; right: 175px;" class="icon-img" src="app/nolisto.png" />
     </div>
-    <div flex class="task-item">
+    <div ng-if="vm.currentMission.tasks[1].done" flex class="task-item">
+        <img style="position: absolute; top: 330px; right: 175px;" class="icon-img" src="app/listo.png" />
+    </div>
+    <div ng-if="!vm.currentMission.tasks[0].done" flex class="task-item">
         <img ng-click="vm.showAlert($event, vm.currentMission.tasks[0])" style="position: absolute; top: 530px; right: 60px;" class="icon-img" src="app/nolisto.png" />
+    </div>
+    <div ng-if="vm.currentMission.tasks[0].done" flex class="task-item">
+        <img style="position: absolute; top: 530px; right: 60px;" class="icon-img" src="app/listo.png" />
     </div>
 </div>

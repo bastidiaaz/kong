@@ -33,7 +33,15 @@
               clickOutsideToClose:false,
           })
           .then(function(answer) {
+              if (answer) {
+                  angular.forEach(vm.currentMission.tasks, function(taskitem) {
+                     if (taskitem.priority == task.priority) {
+                         taskitem.done = true;
+                     }
+                  });
+              }
 
+              console.log(vm.currentMission);
           }, function() {
 
           });
@@ -41,7 +49,12 @@
 
       function DialogController($scope, $mdDialog, task) {
           $scope.task = task;
-          console.log($scope.task);
+          $scope.uploadme;
+          $scope.uploadme2;
+          $scope.submit = function() {
+            $scope.answer(true);
+          };
+
           $scope.hide = function() {
               $mdDialog.hide();
           };
