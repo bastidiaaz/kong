@@ -17,7 +17,7 @@
             .state('missions', {
                 url: '/missions',
                 templateUrl: 'app/missions/missions.html',
-                controller: 'MainController',
+                controller: 'MissionsController',
                 controllerAs: 'vm'
             });
 
