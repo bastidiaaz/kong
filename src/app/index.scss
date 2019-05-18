@@ -12,6 +12,10 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 // bower:scss
 // endbower
 
+.boton-rapido .md-button {
+    background-color: #6DA89A !important;
+}
+
 .app {
     background: #90D1BB;
     height: 100vh;

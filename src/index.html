@@ -21,17 +21,17 @@
 </head>
 
 <body>
-  <div ng-class="{'in-game': view == 'missions.detail', 'in-missions': view == 'missions'}" class="app" flex layout="column">
+  <div ng-class="{'in-game': view == 'game', 'in-missions': view == 'missions'}" class="app" flex layout="column">
       <nav-bar></nav-bar>
       <md-sidenav flex class="md-sidenav-left" md-component-id="closeEventsDisabled"
       md-whiteframe="4" md-disable-close-events>
       <md-content flex layout-margin>
           <div flex layout="column" layout-align="center start" class="menu-list">
-              <div flex layout="row" layout-align="start center" class="menu-item">
-                  <i class="glyphicon glyphicon-user"></i>
-                  <span>Perfil</span>
+              <div ui-sref="home" ng-click="toggleSidenav()" flex layout="row" layout-align="start center" class="menu-item">
+                  <i class="glyphicon glyphicon-home"></i>
+                  <span>Inicio</span>
               </div>
-              <div flex layout="row" layout-align="start center" class="menu-item">
+              <div ui-sref="missions" ng-click="toggleSidenav()" flex layout="row" layout-align="start center" class="menu-item">
                   <i class="glyphicon glyphicon-tree-deciduous"></i>
                   <span>Misiones</span>
               </div>

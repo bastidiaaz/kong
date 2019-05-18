@@ -18,7 +18,16 @@
         toastr.options.progressBar = true;
     }
 
-    function run($rootScope) {
+    function run($rootScope, $mdSidenav) {
+        $rootScope.toggleSidenav = buildToggler('closeEventsDisabled');
+        $rootScope.missions= [];
+
+        function buildToggler(componentId) {
+            return function() {
+                $mdSidenav(componentId).toggle();
+            };
+        }
+
         $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
             $rootScope.view = toState.name;
