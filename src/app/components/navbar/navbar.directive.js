@@ -42,7 +42,15 @@
         function NavbarController($scope, $mdSidenav, $rootScope) {
             var vm = this;
             vm.view = $rootScope.view;
+
             $scope.global = $rootScope;
+
+            $rootScope.$on('$stateChangeStart',
+            function(event, toState, toParams, fromState, fromParams){
+                vm.isVisible = $rootScope.view ==  'home' || $rootScope.view == 'game' ? false : true;
+                console.log(vm.isVisible);
+            });
+
             vm.toggleSidenav = buildToggler('closeEventsDisabled');
 
             function buildToggler(componentId) {

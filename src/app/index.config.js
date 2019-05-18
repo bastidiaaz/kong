@@ -3,8 +3,7 @@
 
     angular
         .module('angularSeedApp')
-        .config(config)
-        .run(run);
+        .config(config);
 
     /** @ngInject */
     function config($logProvider, toastr) {
@@ -17,25 +16,5 @@
         toastr.options.preventDuplicates = true;
         toastr.options.progressBar = true;
     }
-
-    function run($rootScope, $mdSidenav) {
-        $rootScope.toggleSidenav = buildToggler('closeEventsDisabled');
-        $rootScope.missions= [];
-        $rootScope.level= 1;
-        $rootScope.rupias= 4231;
-
-        function buildToggler(componentId) {
-            return function() {
-                $mdSidenav(componentId).toggle();
-            };
-        }
-
-        $rootScope.$on('$stateChangeStart',
-        function(event, toState, toParams, fromState, fromParams){
-            $rootScope.view = toState.name;
-            $rootScope.params = toParams;
-        });
-    }
-
 })
 ();
