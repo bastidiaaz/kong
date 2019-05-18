@@ -9,24 +9,36 @@
             <i style="margin-left: 40px;" class="glyphicon glyphicon-chevron-right"></i>
         </div>
     </div>
-    <md-divider ng-if="vm.missions.length > 0" style="margin-top: 5px;"></md-divider>
+    <md-divider ng-if="vm.missions.length > 0" style="margin-top: 7px;margin-left: 15px;margin-right: 15px;"></md-divider>
     <div flex layout="column">
         <span style="margin-top: 15px; text-align: center; font-size: 25px; color: gray;">Misiones para ti!</span>
         <div flex style="margin-top: 15px;" layout="column" layout-align="start center">
             <div layout="row">
-                <div ng-click="vm.createNewMission('limpia')" flex layout="row" layout-align="center center" class="ms-button mission-action-button md-whiteframe-1dp">
-                    <div flex style="align-content: flex-end">limpia</div>
+                <div ng-click="vm.createNewMission('limpia')" flex layout="row" layout-align="center center" class="ms-button mission-action-button md-whiteframe-3dp">
+                    <div layout="column" layout-align="center center">
+                        <img src="app/limpia80.png" />
+                        <div flex style="align-content: flex-end">Limpia</div>
+                    </div>
                 </div>
-                <div ng-click="vm.createNewMission('recicla')" flex layout="row" layout-align="center center" class="ms-button mission-action-button md-whiteframe-1dp">
-                    <div flex>recicla</div>
+                <div ng-click="vm.createNewMission('recicla')" flex layout="row" layout-align="center center" class="ms-button mission-action-button md-whiteframe-3dp">
+                    <div layout="column" layout-align="center center">
+                        <img src="app/recicla80.png" />
+                        <div flex>Recicla</div>
+                    </div>
                 </div>
             </div>
             <div layout="row">
-                <div ng-click="vm.createNewMission('reutiliza')" flex layout="row" layout-align="center center" class="ms-button mission-action-button md-whiteframe-1dp">
-                    <div flex>reutiliza</div>
+                <div ng-click="vm.createNewMission('reutiliza')" flex layout="row" layout-align="center center" class="ms-button mission-action-button md-whiteframe-3dp">
+                    <div layout="column" layout-align="center center">
+                        <img src="app/reutiliza80.png" />
+                        <div flex>Reutiliza</div>
+                    </div>
                 </div>
-                <div ng-click="vm.createNewMission('recolecta')" flex layout="row" layout-align="center center" class="ms-button mission-action-button md-whiteframe-1dp">
-                    <div flex>recolecta</div>
+                <div ng-click="vm.createNewMission('recolecta')" flex layout="row" layout-align="center center" class="ms-button mission-action-button md-whiteframe-3dp">
+                    <div layout="column" layout-align="center center">
+                        <img src="app/recolecta80.png" />
+                        <div flex>Recolecta</div>
+                    </div>
                 </div>
             </div>
         </div>
