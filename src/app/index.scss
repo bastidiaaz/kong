@@ -58,6 +58,43 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 .no-padding {
   padding: 0px !important;
 }
+
+md-sidenav {
+    width: calc(100% - 150px) !important;
+    min-width: calc(100% - 200px) !important;
+    max-width: calc(100% - 200px) !important;
+    background-color: #90D1BB;
+    md-content {
+        background-color: #90D1BB;
+    }
+}
+
+.menu-list {
+    padding-top: 50px;
+    .menu-item {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        .glyphicon {
+            font-size: 20px;
+            color: white;
+        }
+
+        span {
+            color: white;
+            font-size: 20px;
+            margin-left: 10px;
+            padding-top: 6px;
+        }
+    }
+}
+
+.brand-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 20px;
+}
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
