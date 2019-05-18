@@ -3,7 +3,8 @@
 
     angular
         .module('angularSeedApp')
-        .config(config);
+        .config(config)
+        .run(run);
 
     /** @ngInject */
     function config($logProvider, toastr) {
@@ -17,4 +18,13 @@
         toastr.options.progressBar = true;
     }
 
-})();
+    function run($rootScope) {
+        $rootScope.$on('$stateChangeStart',
+        function(event, toState, toParams, fromState, fromParams){
+            $rootScope.view = toState.name;
+            $rootScope.params = toParams;
+        });
+    }
+
+})
+();

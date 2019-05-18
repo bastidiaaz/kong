@@ -18,6 +18,11 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
     padding: 10px;
 }
 
+.in-game {
+    background-image: url("fondojuego.png");
+    background-size: cover;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
