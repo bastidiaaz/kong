@@ -39,6 +39,11 @@
                          taskitem.done = true;
                      }
                   });
+
+                  if (vm.currentMission.tasks[0].done == true && vm.currentMission.tasks[1].done == true && vm.currentMission.tasks[2].done == true) {
+                      $rootScope.level = 99;
+                      $rootScope.rupias = 99999;
+                  }
               }
 
               console.log(vm.currentMission);

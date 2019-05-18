@@ -21,6 +21,8 @@
     function run($rootScope, $mdSidenav) {
         $rootScope.toggleSidenav = buildToggler('closeEventsDisabled');
         $rootScope.missions= [];
+        $rootScope.level= 1;
+        $rootScope.rupias= 4231;
 
         function buildToggler(componentId) {
             return function() {

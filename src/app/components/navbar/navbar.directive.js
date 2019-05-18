@@ -42,6 +42,7 @@
         function NavbarController($scope, $mdSidenav, $rootScope) {
             var vm = this;
             vm.view = $rootScope.view;
+            $scope.global = $rootScope;
             vm.toggleSidenav = buildToggler('closeEventsDisabled');
 
             function buildToggler(componentId) {
