@@ -19,16 +19,16 @@
         <i ng-class="{'in-game-navbar': vm.view != 'home'}" class="glyphicon glyphicon-menu-hamburger"></i>
     </md-button>
 
-    <div ng-class="{'in-game-navbar': vm.view != 'home'}" style="width: 90%; margin-top: 25px; margin-left: 35px;" flex layout="column">
+    <div ng-if="vm.isVisible" ng-class="{'in-game-navbar': vm.view != 'home'}" style="width: 90%; margin-top: 25px; margin-left: 35px;" flex layout="column">
         <span ng-class="{'in-game-navbar': vm.view != 'home'}" class="navbar-user">David Sepulveda</span>
         <div flex layout="row">
             <div class="info-label" layout="row" flex layout-align="start center">
                 <img class="icon-img" src="app/exp@4x.png" />
-                <span ng-class="{'in-game-navbar': vm.view != 'home'}">Nivel 1</span>
+                <span ng-class="{'in-game-navbar': vm.view != 'home'}">Nivel {{global.level}}</span>
             </div>
             <div style="margin-left: 35px;" class="info-label" layout="row" flex layout-align="start center">
                 <img class="icon-img" src="app/moneda@4x.png" />
-                <span ng-class="{'in-game-navbar': vm.view != 'home'}">4.142</span>
+                <span ng-class="{'in-game-navbar': vm.view != 'home'}">{{global.rupias}}</span>
             </div>
         </div>
     </div>

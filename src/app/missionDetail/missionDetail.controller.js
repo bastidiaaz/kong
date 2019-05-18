@@ -25,7 +25,7 @@
 
       vm.showAlert = function(ev, task) {
           $mdDialog.show({
-              locals: {task: task},
+              locals: {task: task, roots: $rootScope},
               controller: DialogController,
               templateUrl: 'app/missionDetail/dialog1.tmpl.html',
               parent: angular.element(document.body),
@@ -33,15 +33,45 @@
               clickOutsideToClose:false,
           })
           .then(function(answer) {
+              if (answer) {
+                  angular.forEach(vm.currentMission.tasks, function(taskitem) {
+                     if (taskitem.priority == task.priority) {
+                         taskitem.done = true;
+                     }
+                  });
 
+                  if (vm.currentMission.tasks[0].done == true && vm.currentMission.tasks[1].done == true && vm.currentMission.tasks[2].done == true) {
+                      $rootScope.level = 99;
+                      $rootScope.rupias = 99999;
+                      $mdDialog.show({
+                          locals: {task: task, roots: $rootScope},
+                          controller: DialogController,
+                          templateUrl: 'app/missionDetail/dialog2.tmpl.html',
+                          parent: angular.element(document.body),
+                          targetEvent: ev,
+                          clickOutsideToClose:false,
+                      }).then(function(answer) {
+
+                      }, function() {
+
+                      });
+                  }
+              }
+              console.log(vm.currentMission);
           }, function() {
 
           });
       }
 
-      function DialogController($scope, $mdDialog, task) {
+      function DialogController($scope, $mdDialog, task, roots) {
           $scope.task = task;
-          console.log($scope.task);
+          $scope.roots = roots;
+          $scope.uploadme;
+          $scope.uploadme2;
+          $scope.submit = function() {
+            $scope.answer(true);
+          };
+
           $scope.hide = function() {
               $mdDialog.hide();
           };

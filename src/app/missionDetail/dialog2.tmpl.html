@@ -1,0 +1,15 @@
+<div layout="column" layout-wrap layout-align="start center" style="padding: 10px;" >
+    <span flex style="font-size: 22px; color: #6DA89A">¡Felicidades!</span>
+    <span flex><b>25 personas</b> han realizado esta misión en tu zona. Esto equivale a plantar <b>5 árboles</b>. ¡Sigue así!</span>
+    <div flex layout="row" style="width: 400px; margin-top: 20px;">
+        <div class="info-label" layout="row" layout-align="start center">
+            <img style="width: 30px; height: 30px; margin-left: 35px;" class="icon-img" src="app/exp@4x.png" />
+            <span>Nivel {{roots.level}}</span>
+        </div>
+        <div style="margin-left: 35px; width: 30px; height: 30px;" class="info-label" layout="row" layout-align="start center">
+            <img style="width: 30px; margin-left: 35px; height: 30px;" class="icon-img" src="app/moneda@4x.png" />
+            <span>{{roots.rupias}}</span>
+        </div>
+    </div>
+    <md-button ng-click="hide();" ui-sref="home" style="background-color: #6DA89A !important; color: white; margin-top: 20px;" class="md-raised">Mira tu nuevo Domo aquí</md-button>
+</div>
